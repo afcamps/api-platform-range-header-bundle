@@ -1,0 +1,3 @@
+api_platform_range_header:
+  defaults:
+      range_header_enabled: true

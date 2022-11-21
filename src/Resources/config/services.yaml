@@ -1,0 +1,25 @@
+services:
+  campings_api_range_header.range_header_request_listener:
+    class: Campings\Bundle\ApiPlatformRangeHeaderBundle\EventListener\RangeHeaderRequestListener
+    tags:
+      - { name: 'kernel.event_subscriber' }
+
+  campings_api_range_header.range_header_response_listener:
+    class: Campings\Bundle\ApiPlatformRangeHeaderBundle\EventListener\RangeHeaderResponseListener
+    arguments:
+      $pagination: '@campings_api_range_header.pagination'
+    tags:
+      - { name: 'kernel.event_subscriber' }
+
+  campings_api_range_header.pagination:
+    class: Campings\Bundle\ApiPlatformRangeHeaderBundle\State\Pagination\Pagination
+    arguments:
+      $options: '%api_platform.collection.pagination%'
+
+  campings_api_range_header.doctrine.orm.query_extension.pagination:
+    class: Campings\Bundle\ApiPlatformRangeHeaderBundle\Doctrine\Orm\Extension\PaginationExtension
+    arguments:
+      $managerRegistry: '@doctrine'
+      $pagination: '@campings_api_range_header.pagination'
+    tags:
+      - { name: 'api_platform.doctrine.orm.query_extension.collection', priority: -63 }

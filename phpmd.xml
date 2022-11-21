@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<ruleset name="Campings.com Ruleset"
+         xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
+         xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd"
+>
+    <description>
+        Campings.com Ruleset
+    </description>
+
+    <!-- cleancode -->
+    <rule ref="rulesets/cleancode.xml">
+        <exclude name="StaticAccess"/>
+        <exclude name="MissingImport"/>
+    </rule>
+    <rule ref="rulesets/cleancode.xml/MissingImport">
+        <properties>
+            <property name="ignore-global" value="true"/>
+        </properties>
+    </rule>
+
+    <!-- codesize -->
+    <rule ref="rulesets/codesize.xml">
+        <exclude name="CyclomaticComplexity"/>
+        <exclude name="ExcessiveMethodLength"/>
+        <exclude name="ExcessiveClassLength"/>
+        <exclude name="ExcessiveParameterList"/>
+        <exclude name="ExcessivePublicCount"/>
+        <exclude name="TooManyMethods"/>
+    </rule>
+    <rule ref="rulesets/codesize.xml/CyclomaticComplexity">
+        <properties>
+            <property name="reportLevel" value="9"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/ExcessiveMethodLength">
+        <properties>
+            <property name="minimum" value="60"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/ExcessiveClassLength">
+        <properties>
+            <property name="minimum" value="300"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/ExcessiveParameterList">
+        <properties>
+            <property name="minimum" value="10"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/ExcessivePublicCount">
+        <properties>
+            <property name="minimum" value="30"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/codesize.xml/TooManyMethods">
+        <properties>
+            <property name="maxmethods" value="20"/>
+        </properties>
+    </rule>
+
+    <!-- design -->
+    <rule ref="rulesets/design.xml">
+        <exclude name="CouplingBetweenObjects"/>
+    </rule>
+    <rule ref="rulesets/design.xml/CouplingBetweenObjects">
+        <properties>
+            <property name="maximum" value="13"/>
+        </properties>
+    </rule>
+
+    <rule ref="rulesets/naming.xml">
+        <exclude name="LongClassName"/>
+        <exclude name="LongVariable"/>
+        <exclude name="ShortVariable"/>
+        <exclude name="ShortMethodName"/>
+    </rule>
+    <rule ref="rulesets/naming.xml/LongVariable">
+        <properties>
+            <property name="maximum" value="40"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/naming.xml/LongClassName">
+        <properties>
+            <property name="maximum" value="80"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/naming.xml/ShortVariable">
+        <properties>
+            <property name="minimum" value="3"/>
+            <property name="exceptions" value="i,j,id,to"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/naming.xml/ShortMethodName">
+        <properties>
+            <property name="minimum" value="3"/>
+        </properties>
+    </rule>
+
+    <!-- unusedcode -->
+    <rule ref="rulesets/unusedcode.xml"/>
+</ruleset>
