@@ -15,7 +15,7 @@ namespace Campings\Bundle\ApiPlatformRangeHeaderBundle\State\Pagination;
 
 interface Countable
 {
-    public function getTotalItems(): ?int;
+    public function totalItems(): ?int;
 
     public function start(): ?int;
 

@@ -108,7 +108,7 @@ final class PaginationExtension implements QueryResultCollectionExtensionInterfa
                     $this->queryBuilder = $queryBuilder;
                 }
 
-                public function getTotalItems(): ?int
+                public function totalItems(): ?int
                 {
                     return (new DoctrineOrmPaginator($this->queryBuilder))->count();
                 }
@@ -126,7 +126,7 @@ final class PaginationExtension implements QueryResultCollectionExtensionInterfa
         }
 
         return new class($doctrineOrmPaginator) extends AbstractPaginator implements Countable {
-            public function getTotalItems(): ?int
+            public function totalItems(): ?int
             {
                 return null;
             }
@@ -181,6 +181,7 @@ final class PaginationExtension implements QueryResultCollectionExtensionInterfa
 
     /**
      * Determines whether the Doctrine ORM Paginator should use output walkers.
+     *
      * @SuppressWarnings(PHPMD.NPathComplexity)
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      */

@@ -52,7 +52,7 @@ final class RangeHeaderResponseListener implements EventSubscriberInterface
             return;
         }
 
-        $totalItems = $paginator->getTotalItems();
+        $totalItems = $paginator->totalItems();
         $offset = $paginator->start();
         $limit = $paginator->end();
 

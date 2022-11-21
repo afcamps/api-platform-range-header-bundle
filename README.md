@@ -1,6 +1,7 @@
 # API Platform Range header Bundle
 
 [![Build](https://github.com/afcamps/api-platform-range-header-bundle/actions/workflows/build.yml/badge.svg)](https://github.com/afcamps/api-platform-range-header-bundle/actions/workflows/build.yml)
+[![PHPMD](https://github.com/afcamps/api-platform-range-header-bundle/actions/workflows/phpmd.yml/badge.svg)](https://github.com/afcamps/api-platform-range-header-bundle/actions/workflows/phpmd.yml)
 
 Use the range header request and response for paginate resources [RFC 7233](https://www.rfc-editor.org/rfc/rfc7233)
 
@@ -87,3 +88,16 @@ Add the range request header with your range unit configured as above or use the
   HTTP/1.1 416 Range Not Satisfiable
   Accept-ranges: books
 ```
+
+#### Pagination for Custom State Providers
+
+If you are using custom state providers (not the provided Doctrine ORM, ODM or ElasticSearch ones)
+
+and if you want your results to be paginated, you will need to return an instance of a `ApiPlatform\State\Pagination\PartialPaginatorInterface` or `ApiPlatform\State\Pagination\PaginatorInterface`. 
+
+A utils classes are provided to make it easier to paginate the results with Range Header:
+
+> `Campings\Bundle\ApiPlatformRangeHeaderBundle\State\Pagination\RangePaginator` 
+
+see example here :
+[tests/Application/src/DataProvider/DummyProvider.php](https://github.com/afcamps/api-platform-range-header-bundle/blob/main/tests/Application/src/DataProvider/DummyProvider.php)
