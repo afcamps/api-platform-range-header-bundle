@@ -10,7 +10,7 @@
   "require-dev": {
     "behat/behat": "^3.11",
     "behat/mink": "^1.10",
-    "doctrine/annotations": "^1.0",
+    "doctrine/annotations": "^2.0",
     "doctrine/doctrine-bundle": "^2.7",
     "doctrine/doctrine-fixtures-bundle": "^3.4",
     "doctrine/doctrine-migrations-bundle": "^3.2",
